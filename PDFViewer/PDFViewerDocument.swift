@@ -7,33 +7,33 @@
 
 import SwiftUI
 import UniformTypeIdentifiers
+import PDFKit
 
-extension UTType {
-    static var exampleText: UTType {
-        UTType(importedAs: "com.example.plain-text")
-    }
-}
 
 struct PDFViewerDocument: FileDocument {
-    var text: String
+    var referenceDocument:PDFDocument
 
-    init(text: String = "Hello, world!") {
-        self.text = text
+    init(data: Data = blankData()) {
+        self.referenceDocument = PDFDocument(data: data)!
     }
 
-    static var readableContentTypes: [UTType] { [.exampleText] }
+    static var readableContentTypes: [UTType] { [.pdf] }
 
     init(configuration: ReadConfiguration) throws {
-        guard let data = configuration.file.regularFileContents,
-              let string = String(data: data, encoding: .utf8)
+        guard let data = configuration.file.regularFileContents
         else {
             throw CocoaError(.fileReadCorruptFile)
         }
-        text = string
+        self.referenceDocument = PDFDocument(data: data)!
     }
     
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
-        let data = text.data(using: .utf8)!
-        return .init(regularFileWithContents: data)
+        return .init(regularFileWithContents: Data())
     }
+
+}
+
+func blankData()->Data{
+    let renderer = UIGraphicsPDFRenderer(bounds:UIScreen.main.bounds, format:UIGraphicsPDFRendererFormat())
+    return renderer.pdfData{$0.beginPage()}
 }

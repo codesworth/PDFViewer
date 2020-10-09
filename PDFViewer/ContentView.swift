@@ -11,12 +11,7 @@ struct ContentView: View {
     @Binding var document: PDFViewerDocument
 
     var body: some View {
-        TextEditor(text: $document.text)
+        PDFView(document: $document)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView(document: .constant(PDFViewerDocument()))
-    }
-}

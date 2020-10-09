@@ -14,6 +14,7 @@
 		3DBE4C7A252FF92B00796947 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DBE4C79252FF92B00796947 /* Preview Assets.xcassets */; };
 		3DBE4C85252FF92C00796947 /* PDFViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE4C84252FF92C00796947 /* PDFViewerTests.swift */; };
 		3DBE4C90252FF92C00796947 /* PDFViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE4C8F252FF92C00796947 /* PDFViewerUITests.swift */; };
+		3DBE4CA32530AEBF00796947 /* PDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBE4CA22530AEBF00796947 /* PDFView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,8 @@
 		3DBE4C8B252FF92C00796947 /* PDFViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PDFViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DBE4C8F252FF92C00796947 /* PDFViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewerUITests.swift; sourceTree = "<group>"; };
 		3DBE4C91252FF92C00796947 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DBE4CA22530AEBF00796947 /* PDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFView.swift; sourceTree = "<group>"; };
+		3DBE4CAA2530B24700796947 /* PDFViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PDFViewer.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,8 @@
 		3DBE4C6F252FF92900796947 /* PDFViewer */ = {
 			isa = PBXGroup;
 			children = (
+				3DBE4CAA2530B24700796947 /* PDFViewer.entitlements */,
+				3DBE4CA12530AEA700796947 /* PDFView */,
 				3DBE4C70252FF92900796947 /* PDFViewerApp.swift */,
 				3DBE4C72252FF92900796947 /* PDFViewerDocument.swift */,
 				3DBE4C74252FF92900796947 /* ContentView.swift */,
@@ -131,6 +136,14 @@
 				3DBE4C91252FF92C00796947 /* Info.plist */,
 			);
 			path = PDFViewerUITests;
+			sourceTree = "<group>";
+		};
+		3DBE4CA12530AEA700796947 /* PDFView */ = {
+			isa = PBXGroup;
+			children = (
+				3DBE4CA22530AEBF00796947 /* PDFView.swift */,
+			);
+			path = PDFView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DBE4C71252FF92900796947 /* PDFViewerApp.swift in Sources */,
+				3DBE4CA32530AEBF00796947 /* PDFView.swift in Sources */,
 				3DBE4C73252FF92900796947 /* PDFViewerDocument.swift in Sources */,
 				3DBE4C75252FF92900796947 /* ContentView.swift in Sources */,
 			);
@@ -421,18 +435,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PDFViewer/PDFViewer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PDFViewer/Preview Content\"";
 				DEVELOPMENT_TEAM = MB46J93Q7Z;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PDFViewer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.codesworth.PDFViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -443,18 +460,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PDFViewer/PDFViewer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PDFViewer/Preview Content\"";
 				DEVELOPMENT_TEAM = MB46J93Q7Z;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PDFViewer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.codesworth.PDFViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
